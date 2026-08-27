@@ -1,0 +1,82 @@
+---
+interface Props {
+    active?: "secretaria" | "investigador";
+}
+
+const { active = "secretaria" } = Astro.props;
+---
+
+<div class="login-role-selector" role="tablist" aria-label="Tipo de usuario">
+    <button
+        class:list={[
+            "login-role-selector__option",
+            {
+                "login-role-selector__option--active": active === "secretaria",
+            },
+        ]}
+        type="button"
+        role="tab"
+        aria-selected={active === "secretaria"}
+    >
+        Personal Secretaría
+    </button>
+
+    <button
+        class:list={[
+            "login-role-selector__option",
+            {
+                "login-role-selector__option--active":
+                    active === "investigador",
+            },
+        ]}
+        type="button"
+        role="tab"
+        aria-selected={active === "investigador"}
+    >
+        Investigador
+    </button>
+</div>
+
+<style>
+    .login-role-selector {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.25rem;
+
+        width: 100%;
+        padding: 0.25rem;
+
+        background-color: #f2f2f2;
+        border-radius: 0.65rem;
+    }
+
+    .login-role-selector__option {
+        min-height: 2.75rem;
+        padding: 0.5rem 1rem;
+
+        border: 0;
+        border-radius: 0.55rem;
+
+        background-color: transparent;
+        color: #36536f;
+
+        font: inherit;
+        font-size: 0.95rem;
+        cursor: pointer;
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .login-role-selector__option:hover {
+        color: #001f3f;
+    }
+
+    .login-role-selector__option--active {
+        background-color: #ffffff;
+        color: #001f3f;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+</style>
