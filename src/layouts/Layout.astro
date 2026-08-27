@@ -1,3 +1,8 @@
+---
+import "@/styles/global.css";
+import { ClientRouter } from "astro:transitions";
+---
+
 <!doctype html>
 <html lang="es-AR">
     <head>
@@ -18,20 +23,9 @@
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
             rel="stylesheet"
         />
+        <ClientRouter />
     </head>
     <body>
         <slot />
     </body>
 </html>
-
-<style is:global>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: "Inter", system-ui, sans-serif;
-    }
-</style>
