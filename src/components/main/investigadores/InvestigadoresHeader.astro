@@ -1,0 +1,110 @@
+---
+interface Props {
+    total: number;
+}
+
+const { total } = Astro.props;
+---
+
+<header class="investigadores-header">
+    <div class="investigadores-header__content">
+        <span class="investigadores-header__eyebrow"> Gestión académica </span>
+
+        <h1 class="investigadores-header__title">Investigadores</h1>
+
+        <p class="investigadores-header__description">
+            Consulta y gestión de los investigadores registrados en la
+            Secretaría de Ciencia y Tecnología.
+        </p>
+    </div>
+
+    <div class="investigadores-header__summary">
+        <span class="investigadores-header__summary-label">
+            Investigadores registrados
+        </span>
+
+        <strong class="investigadores-header__summary-value">
+            {total}
+        </strong>
+    </div>
+</header>
+
+<style>
+    .investigadores-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .investigadores-header__eyebrow {
+        color: var(--color-accent);
+
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .investigadores-header__title {
+        margin: 6px 0 0;
+
+        color: var(--color-text);
+
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .investigadores-header__description {
+        max-width: 650px;
+
+        margin: 8px 0 0;
+
+        color: var(--color-text-secondary);
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .investigadores-header__summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        padding: 16px 20px;
+
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .investigadores-header__summary-label {
+        color: var(--color-text-muted);
+
+        font-size: 11px;
+    }
+
+    .investigadores-header__summary-value {
+        margin-top: 4px;
+
+        color: var(--color-primary);
+
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+        .investigadores-header {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .investigadores-header__summary {
+            width: 100%;
+            align-items: flex-start;
+        }
+    }
+</style>

@@ -1,0 +1,52 @@
+---
+import fs from "node:fs";
+import { parse } from "csv-parse/sync";
+import InvestigadoresHeader from "./InvestigadoresHeader.astro";
+import InvestigadoresTable, {
+    type Investigador,
+} from "./InvestigadoresTable.astro";
+
+const csvInvestigadores = fs.readFileSync(
+    "src/data/investigadores.csv",
+    "utf-8",
+);
+const csvParticipacion = fs.readFileSync("src/data/participacion.csv", "utf-8");
+
+const recordsInvestigadores = parse(csvInvestigadores, {
+    columns: true,
+    skip_empty_lines: true,
+});
+const recordsParticipacion = parse(csvParticipacion, {
+    columns: true,
+    skip_empty_lines: true,
+});
+
+const investigadores: Investigador[] = recordsInvestigadores.map((row: any) => {
+    const cantidadProyectos = recordsParticipacion.filter(
+        (p: any) => p.id_investigador === row.id_investigador,
+    ).length;
+
+    return {
+        id: Number(row.id_investigador),
+        nombre: `${row.nombre} ${row.apellido}`,
+        correo: row.email,
+        rol: row.rol_institucional,
+        proyectos: cantidadProyectos,
+        estado: row.activo === "true" ? "Activo" : "Inactivo",
+    };
+});
+---
+
+<section class="investigadores">
+    <InvestigadoresHeader total={investigadores.length} />
+
+    <InvestigadoresTable investigadores={investigadores} />
+</section>
+
+<style>
+    .investigadores {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+</style>

@@ -1,5 +1,5 @@
-id_investigador,dni,nombre,apellido,email,rol_institucional,activo
-1,38123456,Ariel,Ladner,ariel@sanfrancisco.utn.edu.ar,Estudiante,true
-2,37123456,Julio,Arrieta,julio@sanfrancisco.utn.edu.ar,Estudiante,true
-3,30123456,Mariana,Gomez,mariana@sanfrancisco.utn.edu.ar,No Docente,true
-4,28123456,Diego,Lopez,diego@sanfrancisco.utn.edu.ar,Docente-Investigador,true
+id_investigador,dni,nombre,apellido,email,telefono,facultad_origen,categoria_docente,categoria_investigador,legajo,rol_institucional,cv_url,activo
+1,38123456,Ariel,Ladner,ariel@sanfrancisco.utn.edu.ar,3564112233,FRSF,N/A,N/A,45012,Estudiante,/uploads/cv_ariel.pdf,true
+2,37123456,Julio,Arrieta,julio@sanfrancisco.utn.edu.ar,3564223344,FRSF,N/A,N/A,45100,Estudiante,/uploads/cv_julio.pdf,true
+3,30123456,Mariana,Gomez,mariana@sanfrancisco.utn.edu.ar,3564334455,FRSF,N/A,N/A,12050,No Docente,,true
+4,28123456,Diego,Lopez,diego@sanfrancisco.utn.edu.ar,3564445566,FRSF,Adjunto,III,09876,Docente-Investigador,/uploads/cv_diego.pdf,true
