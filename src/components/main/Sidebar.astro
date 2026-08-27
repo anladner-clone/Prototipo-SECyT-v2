@@ -5,6 +5,7 @@ interface MenuItem {
     label: string;
     slug: string;
     icon: string;
+    materialSymbolIcon: string;
 }
 
 interface Props {
@@ -18,21 +19,25 @@ const menuItems: MenuItem[] = [
         label: "Dashboard",
         slug: "dashboard",
         icon: "dashboard",
+        materialSymbolIcon: "dashboard",
     },
     {
         label: "Investigadores",
         slug: "investigadores",
         icon: "users",
+        materialSymbolIcon: "person_search",
     },
     {
         label: "Proyectos",
         slug: "proyectos",
         icon: "folder",
+        materialSymbolIcon: "folder",
     },
     {
         label: "Reportes",
         slug: "reportes",
         icon: "reports",
+        materialSymbolIcon: "description",
     },
 ];
 ---
@@ -85,11 +90,11 @@ const menuItems: MenuItem[] = [
                             <span
                                 class:list={[
                                     "sidebar__icon",
-                                    `sidebar__icon--${item.icon}`,
+                                    "material-symbols-outlined",
                                 ]}
                                 aria-hidden="true"
                             >
-                                ●
+                                {item.materialSymbolIcon}
                             </span>
 
                             <span class="sidebar__link-text">{item.label}</span>
@@ -258,7 +263,7 @@ const menuItems: MenuItem[] = [
         width: 18px;
         text-align: center;
 
-        font-size: 10px;
+        font-size: 1.1rem;
     }
 
     .sidebar__link--active .sidebar__icon {
