@@ -30,7 +30,7 @@ Para correr este prototipo en tu máquina local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
 ```bash
-git clone [https://github.com/anladner-clone/Prototipo-SECyT-v2.git](https://github.com/anladner-clone/Prototipo-SECyT-v2.git)
+git clone https://github.com/anladner-clone/Prototipo-SECyT-v2.git
 ```
 2. **Instalar dependencias:**
 ```bash
