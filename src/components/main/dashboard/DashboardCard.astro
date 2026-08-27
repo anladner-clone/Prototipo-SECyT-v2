@@ -1,0 +1,92 @@
+---
+interface Props {
+    title: string;
+    value: number | string;
+    description: string;
+    icon?: string;
+}
+
+const { title, value, description, icon = "•" } = Astro.props;
+---
+
+<article class="dashboard-card">
+    <div class="dashboard-card__header">
+        <span class="dashboard-card__title">
+            {title}
+        </span>
+
+        <span class="dashboard-card__icon" aria-hidden="true">
+            {icon}
+        </span>
+    </div>
+
+    <strong class="dashboard-card__value">
+        {value}
+    </strong>
+
+    <span class="dashboard-card__description">
+        {description}
+    </span>
+</article>
+
+<style>
+    .dashboard-card {
+        padding: 22px;
+
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .dashboard-card__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .dashboard-card__title {
+        color: var(--color-text-secondary);
+
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .dashboard-card__icon {
+        display: grid;
+        place-items: center;
+
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+
+        background-color: var(--color-accent-light);
+        color: var(--color-accent);
+
+        font-size: 14px;
+    }
+
+    .dashboard-card__value {
+        display: block;
+
+        margin-top: 18px;
+
+        color: var(--color-text);
+
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    .dashboard-card__description {
+        display: block;
+
+        margin-top: 10px;
+
+        color: var(--color-text-muted);
+
+        font-size: 11px;
+    }
+</style>

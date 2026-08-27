@@ -1,0 +1,141 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Sidebar from "@components/main/Sidebar.astro";
+import Dashboard from "@components/main/dashboard/Dashboard.astro";
+
+export function getStaticPaths() {
+    return [
+        {
+            params: {
+                main: "dashboard",
+            },
+        },
+    ];
+}
+
+const { main } = Astro.params;
+
+const pages = {
+    dashboard: Dashboard,
+};
+
+const CurrentPage = pages[main as keyof typeof pages];
+
+if (!CurrentPage) {
+    return Astro.redirect("/dashboard");
+}
+---
+
+<Layout>
+    <div class="main-layout">
+        <Sidebar activeItem={main ?? ""} />
+
+        <main class="main-layout__content">
+            <header class="main-layout__topbar">
+                <div class="main-layout__breadcrumb">Sistema de Gestión</div>
+
+                <div class="main-layout__user">
+                    <span class="main-layout__user-name"> Usuario </span>
+
+                    <span class="main-layout__user-avatar"> U </span>
+                </div>
+            </header>
+
+            <section class="main-layout__page">
+                <CurrentPage />
+            </section>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    .main-layout {
+        display: grid;
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+
+        width: 100%;
+        min-height: 100vh;
+
+        padding: 20px;
+    }
+
+    .main-layout__content {
+        min-width: 0;
+        min-height: calc(100vh - 40px);
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+
+    .main-layout__topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        min-height: 64px;
+        margin-bottom: 20px;
+        padding: 0 4px;
+    }
+
+    .main-layout__breadcrumb {
+        color: var(--color-text-secondary);
+
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .main-layout__user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .main-layout__user-name {
+        color: var(--color-text);
+
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .main-layout__user-avatar {
+        display: grid;
+        place-items: center;
+
+        width: 36px;
+        height: 36px;
+
+        border-radius: 50%;
+
+        background-color: var(--color-primary);
+        color: #ffffff;
+
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .main-layout__page {
+        padding: 4px;
+    }
+
+    @media (max-width: 700px) {
+        .main-layout {
+            grid-template-columns: 1fr;
+            gap: 16px;
+
+            padding: 12px;
+        }
+
+        .main-layout__content {
+            min-height: auto;
+        }
+
+        .main-layout__topbar {
+            min-height: 52px;
+        }
+
+        .main-layout__user-name {
+            display: none;
+        }
+    }
+</style>

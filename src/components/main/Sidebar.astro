@@ -1,0 +1,271 @@
+---
+import Link from "@components/main/Link.astro";
+
+interface MenuItem {
+    label: string;
+    slug: string;
+    icon: string;
+}
+
+interface Props {
+    activeItem: string;
+}
+
+const { activeItem } = Astro.props;
+
+const menuItems: MenuItem[] = [
+    {
+        label: "Dashboard",
+        slug: "dashboard",
+        icon: "dashboard",
+    },
+    {
+        label: "Investigadores",
+        slug: "investigadores",
+        icon: "users",
+    },
+    {
+        label: "Proyectos",
+        slug: "proyectos",
+        icon: "folder",
+    },
+    {
+        label: "Reportes",
+        slug: "reportes",
+        icon: "reports",
+    },
+];
+---
+
+<aside class="sidebar">
+    <div class="sidebar__header">
+        <div class="sidebar__brand">
+            <div class="sidebar__brand-icon">U</div>
+
+            <span class="sidebar__brand-text"> UTN San Francisco </span>
+        </div>
+
+        <button
+            class="sidebar__toggle"
+            type="button"
+            aria-label="Colapsar menú"
+        >
+            ‹
+        </button>
+    </div>
+
+    <div class="sidebar__profile">
+        <div class="sidebar__avatar">U</div>
+
+        <div class="sidebar__profile-info">
+            <strong class="sidebar__profile-name"> Usuario </strong>
+
+            <span class="sidebar__profile-role"> Personal Secretaría </span>
+        </div>
+    </div>
+
+    <nav class="sidebar__navigation" aria-label="Navegación principal">
+        <span class="sidebar__section-title"> MENÚ </span>
+
+        <ul class="sidebar__menu">
+            {
+                menuItems.map((item) => (
+                    <li class="sidebar__menu-item">
+                        <Link
+                            href={`/${item.slug}`}
+                            class:list={[
+                                "sidebar__link",
+                                {
+                                    "sidebar__link--active":
+                                        activeItem === item.slug,
+                                },
+                            ]}
+                            ariaLabel={item.label}
+                        >
+                            <span
+                                class:list={[
+                                    "sidebar__icon",
+                                    `sidebar__icon--${item.icon}`,
+                                ]}
+                                aria-hidden="true"
+                            >
+                                ●
+                            </span>
+
+                            <span class="sidebar__link-text">{item.label}</span>
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+
+    <div class="sidebar__footer">
+        <Link href="/login" class="sidebar__logout">
+            <span> Cerrar sesión </span>
+        </Link>
+    </div>
+</aside>
+
+<style>
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+
+        width: var(--sidebar-width);
+        height: calc(100vh - 40px);
+
+        padding: 20px 14px;
+
+        background-color: var(--color-primary);
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+
+        color: #ffffff;
+
+        box-shadow: var(--shadow-md);
+    }
+
+    .sidebar__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 8px 24px;
+    }
+
+    .sidebar__brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .sidebar__brand-icon {
+        display: grid;
+        place-items: center;
+
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+
+        background-color: var(--color-accent);
+
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .sidebar__brand-text {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .sidebar__toggle {
+        display: grid;
+        place-items: center;
+
+        width: 30px;
+        height: 30px;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        color: #ffffff;
+
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .sidebar__profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px;
+
+        margin-bottom: 24px;
+
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+    }
+
+    .sidebar__avatar {
+        display: grid;
+        place-items: center;
+
+        width: 38px;
+        height: 38px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background-color: #ffffff;
+        color: var(--color-primary);
+
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .sidebar__profile-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .sidebar__profile-name {
+        overflow: hidden;
+
+        font-size: 13px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .sidebar__profile-role {
+        margin-top: 2px;
+
+        color: rgba(255, 255, 255, 0.65);
+
+        font-size: 10px;
+    }
+
+    .sidebar__section-title {
+        display: block;
+
+        padding: 0 10px;
+        margin-bottom: 10px;
+
+        color: rgba(255, 255, 255, 0.45);
+
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+    }
+
+    .sidebar__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+    }
+
+    .sidebar__icon {
+        width: 18px;
+        text-align: center;
+
+        font-size: 10px;
+    }
+
+    .sidebar__link--active .sidebar__icon {
+        color: var(--color-accent);
+    }
+
+    .sidebar__footer {
+        margin-top: auto;
+    }
+</style>

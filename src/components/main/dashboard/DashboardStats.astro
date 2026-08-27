@@ -1,0 +1,40 @@
+---
+import DashboardCard from "./DashboardCard.astro";
+
+interface Props {
+    projectsCount?: number;
+    researchersCount?: number;
+}
+
+const { projectsCount = 0, researchersCount = 0 } = Astro.props;
+---
+
+<section class="dashboard-stats" aria-label="Resumen general">
+    <DashboardCard
+        title="Proyectos"
+        value={projectsCount}
+        description="Proyectos registrados"
+        icon="P"
+    />
+
+    <DashboardCard
+        title="Investigadores"
+        value={researchersCount}
+        description="Investigadores registrados"
+        icon="I"
+    />
+</section>
+
+<style>
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    @media (max-width: 600px) {
+        .dashboard-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

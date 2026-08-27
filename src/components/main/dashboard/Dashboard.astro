@@ -1,0 +1,79 @@
+---
+import fs from "node:fs";
+import { parse } from "csv-parse/sync";
+import DashboardStats from "./DashboardStats.astro";
+
+const csvProyectos = fs.readFileSync("src/data/proyectos.csv", "utf-8");
+const csvInvestigadores = fs.readFileSync(
+    "src/data/investigadores.csv",
+    "utf-8",
+);
+
+const proyectos = parse(csvProyectos, {
+    columns: true,
+    skip_empty_lines: true,
+});
+const investigadores = parse(csvInvestigadores, {
+    columns: true,
+    skip_empty_lines: true,
+});
+
+const projectsCount = proyectos.length;
+const researchersCount = investigadores.length;
+---
+
+<section class="dashboard">
+    <header class="dashboard__header">
+        <div>
+            <span class="dashboard__eyebrow"> Sistema de Gestión </span>
+
+            <h1 class="dashboard__title">Dashboard</h1>
+
+            <p class="dashboard__description">
+                Resumen general de la Secretaría de Ciencia y Tecnología.
+            </p>
+        </div>
+    </header>
+
+    <DashboardStats
+        projectsCount={projectsCount}
+        researchersCount={researchersCount}
+    />
+</section>
+
+<style>
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .dashboard__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 20px;
+    }
+
+    .dashboard__eyebrow {
+        color: var(--color-accent);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .dashboard__title {
+        margin: 6px 0 0;
+        color: var(--color-text);
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .dashboard__description {
+        margin: 8px 0 0;
+        color: var(--color-text-secondary);
+        font-size: 13px;
+    }
+</style>
