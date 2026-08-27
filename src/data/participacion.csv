@@ -1,0 +1,6 @@
+id_investigador,id_proyecto,rol_en_proyecto,dedicacion_horaria_semanal
+1,101,Integrante,10
+2,101,Integrante,10
+4,101,Director,20
+4,102,Director,20
+3,103,Auditor,15
