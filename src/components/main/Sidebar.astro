@@ -55,15 +55,15 @@ const menuItems: MenuItem[] = [
             type="button"
             aria-label="Colapsar menú"
         >
-            ‹
+            <span class="material-symbols-outlined"> arrow_back_ios </span>
         </button>
     </div>
 
     <div class="sidebar__profile">
-        <div class="sidebar__avatar">U</div>
+        <div class="sidebar__avatar">A</div>
 
         <div class="sidebar__profile-info">
-            <strong class="sidebar__profile-name"> Usuario </strong>
+            <strong class="sidebar__profile-name"> Admin </strong>
 
             <span class="sidebar__profile-role"> Personal Secretaría </span>
         </div>
@@ -118,12 +118,11 @@ const menuItems: MenuItem[] = [
         flex-direction: column;
 
         width: var(--sidebar-width);
-        height: calc(100vh - 40px);
+        max-height: 100dvh;
 
         padding: 20px 14px;
 
         background-color: var(--color-primary);
-        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 
         color: #ffffff;
 

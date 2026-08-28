@@ -49,9 +49,9 @@ if (!CurrentPage) {
                 <div class="main-layout__breadcrumb">Sistema de Gestión</div>
 
                 <div class="main-layout__user">
-                    <span class="main-layout__user-name"> Usuario </span>
+                    <span class="main-layout__user-name"> Admin </span>
 
-                    <span class="main-layout__user-avatar"> U </span>
+                    <span class="main-layout__user-avatar"> A </span>
                 </div>
             </header>
 
@@ -68,9 +68,8 @@ if (!CurrentPage) {
         grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
 
         width: 100%;
-        min-height: 100vh;
-
-        padding: 20px;
+        height: 100dvh;
+        overflow: hidden;
     }
 
     .main-layout__content {
@@ -79,7 +78,7 @@ if (!CurrentPage) {
         border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 
         padding: 0 1.5rem;
-        overflow: hidden;
+        overflow: auto;
     }
 
     .main-layout__topbar {
@@ -88,7 +87,6 @@ if (!CurrentPage) {
         justify-content: space-between;
 
         min-height: 64px;
-        margin-bottom: 20px;
         padding: 0 4px;
     }
 
