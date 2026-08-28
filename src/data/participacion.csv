@@ -4,3 +4,8 @@ id_investigador,id_proyecto,rol_en_proyecto,dedicacion_horaria_semanal
 4,101,Director,20
 4,102,Director,20
 3,103,Auditor,15
+5,106,Director,20
+6,106,Integrante,10
+7,106,Co-Director,15
+1,107,Director,20
+2,107,Integrante,10

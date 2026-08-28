@@ -1,5 +1,6 @@
-id_investigador,dni,nombre,apellido,email,telefono,facultad_origen,categoria_docente,categoria_investigador,legajo,rol_institucional,cv_url,activo
-1,38123456,Ariel,Ladner,ariel@sanfrancisco.utn.edu.ar,3564112233,FRSF,N/A,N/A,45012,Estudiante,/uploads/cv_ariel.pdf,true
-2,37123456,Julio,Arrieta,julio@sanfrancisco.utn.edu.ar,3564223344,FRSF,N/A,N/A,45100,Estudiante,/uploads/cv_julio.pdf,true
-3,30123456,Mariana,Gomez,mariana@sanfrancisco.utn.edu.ar,3564334455,FRSF,N/A,N/A,12050,No Docente,,true
-4,28123456,Diego,Lopez,diego@sanfrancisco.utn.edu.ar,3564445566,FRSF,Adjunto,III,09876,Docente-Investigador,/uploads/cv_diego.pdf,true
+id_investigador,dni,cuil,nombre,apellido,email,telefono,facultad_origen,categoria_utn,categoria_conicet,legajo,rol_institucional,cv_url,activo,fecha_ingreso
+1,38123456,20-38123456-7,Ariel,Ladner,ariel@sanfrancisco.utn.edu.ar,3564112233,FRSF,C,Investigador Asistente,45012,Desarrollador Web,/uploads/cv_ariel.pdf,true,2022-01-01
+2,37123456,20-37123456-3,Julio,Arrieta,julio@sanfrancisco.utn.edu.ar,3564223344,FRSF,D,Becario Doctoral,45100,Estudiante,/uploads/cv_julio.pdf,true,2022-01-01
+3,30123456,27-30123456-1,Mariana,Gomez,mariana@sanfrancisco.utn.edu.ar,3564334455,FRSF,B,Investigador Adjunto,12050,No Docente,,true,2022-01-01
+4,28123456,20-28123456-9,Diego,Lopez,diego@sanfrancisco.utn.edu.ar,3564445566,FRSF,A,Investigador Principal,9876,Docente-Investigador,/uploads/cv_diego.pdf,true,2022-01-01
+5,12345678,27-12345678-9,María Elena,Walsh,mwalsh@utn.edu.ar,1122334455,FRBA,A,Investigador Independiente,34892,Investigadora Principal,,true,2020-03-01
