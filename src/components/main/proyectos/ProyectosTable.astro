@@ -1,0 +1,474 @@
+---
+export interface Proyecto {
+    id: number;
+    nombre: string;
+    director: string;
+    area: string;
+    investigadores: number;
+    estado: "Activo" | "En evaluación" | "Finalizado" | "Cancelado";
+    periodo: string;
+}
+
+interface Props {
+    proyectos: Proyecto[];
+}
+
+const { proyectos } = Astro.props;
+---
+
+<section class="proyectos-table">
+    <div class="proyectos-table__toolbar">
+        <div class="proyectos-table__search">
+            <svg
+                class="proyectos-table__search-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"></circle>
+
+                <path
+                    d="m16 16 4 4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+            </svg>
+
+            <input
+                class="proyectos-table__search-input"
+                type="search"
+                placeholder="Buscar proyecto..."
+                aria-label="Buscar proyecto"
+            />
+        </div>
+
+        <div class="proyectos-table__actions">
+            <button class="proyectos-table__filter" type="button">
+                Filtrar
+            </button>
+
+            <button class="proyectos-table__add" type="button">
+                + Nuevo proyecto
+            </button>
+        </div>
+    </div>
+
+    <div class="proyectos-table__wrapper">
+        <table class="proyectos-table__table">
+            <thead class="proyectos-table__head">
+                <tr>
+                    <th>Proyecto</th>
+                    <th>Responsable</th>
+                    <th>Área</th>
+                    <th>Investigadores</th>
+                    <th>Período</th>
+                    <th>Estado</th>
+                    <th class="proyectos-table__action-column"> Acción </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {
+                    proyectos.map((proyecto) => (
+                        <tr class="proyectos-table__row">
+                            <td>
+                                <div class="proyectos-table__project">
+                                    <div class="proyectos-table__project-icon">
+                                        P
+                                    </div>
+
+                                    <div class="proyectos-table__project-info">
+                                        <strong class="proyectos-table__name">
+                                            {proyecto.nombre}
+                                        </strong>
+
+                                        <span class="proyectos-table__id">
+                                            Proyecto #{proyecto.id}
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="proyectos-table__director">
+                                    {proyecto.director}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="proyectos-table__area">
+                                    {proyecto.area}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="proyectos-table__researchers">
+                                    {proyecto.investigadores}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="proyectos-table__period">
+                                    {proyecto.periodo}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span
+                                    class:list={[
+                                        "proyectos-table__status",
+                                        {
+                                            "proyectos-table__status--active":
+                                                proyecto.estado === "Activo",
+
+                                            "proyectos-table__status--review":
+                                                proyecto.estado ===
+                                                "En evaluación",
+
+                                            "proyectos-table__status--finished":
+                                                proyecto.estado ===
+                                                "Finalizado",
+                                        },
+                                    ]}
+                                >
+                                    {proyecto.estado}
+                                </span>
+                            </td>
+
+                            <td class="proyectos-table__action-column">
+                                <button
+                                    class="proyectos-table__view"
+                                    type="button"
+                                    aria-label={`Ver proyecto ${proyecto.nombre}`}
+                                >
+                                    Ver
+                                </button>
+                            </td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<style>
+    .proyectos-table {
+        overflow: hidden;
+
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .proyectos-table__toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+
+        padding: 18px;
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .proyectos-table__search {
+        position: relative;
+
+        width: min(100%, 360px);
+    }
+
+    .proyectos-table__search-icon {
+        position: absolute;
+        top: 50%;
+        left: 13px;
+
+        width: 17px;
+        height: 17px;
+
+        color: var(--color-text-muted);
+
+        transform: translateY(-50%);
+    }
+
+    .proyectos-table__search-input {
+        width: 100%;
+
+        padding: 10px 12px 10px 38px;
+
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+
+        outline: none;
+
+        background-color: #fafafd;
+        color: var(--color-text);
+
+        font-size: 12px;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .proyectos-table__search-input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    .proyectos-table__search-input:focus {
+        border-color: var(--color-accent);
+
+        box-shadow: 0 0 0 3px var(--color-accent-light);
+    }
+
+    .proyectos-table__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .proyectos-table__filter,
+    .proyectos-table__add {
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        border-radius: var(--radius-sm);
+
+        font-size: 12px;
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .proyectos-table__filter {
+        border: 1px solid var(--color-border);
+
+        background-color: var(--color-surface);
+        color: var(--color-text-secondary);
+    }
+
+    .proyectos-table__filter:hover {
+        background-color: #f7f7fa;
+    }
+
+    .proyectos-table__add {
+        border: 1px solid var(--color-primary);
+
+        background-color: var(--color-primary);
+        color: #ffffff;
+    }
+
+    .proyectos-table__add:hover {
+        background-color: var(--color-primary-dark);
+    }
+
+    .proyectos-table__wrapper {
+        width: 100%;
+        max-height: 500px;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .proyectos-table__table {
+        width: 100%;
+        min-width: 1050px;
+
+        border-collapse: collapse;
+    }
+
+    .proyectos-table__head {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #fafafd;
+    }
+
+    .proyectos-table__head th {
+        padding: 14px 18px;
+
+        border-bottom: 1px solid var(--color-border);
+
+        color: var(--color-text-muted);
+
+        font-size: 10px;
+        font-weight: 700;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .proyectos-table__row {
+        border-bottom: 1px solid var(--color-border);
+
+        transition: background-color 0.2s ease;
+    }
+
+    .proyectos-table__row:last-child {
+        border-bottom: 0;
+    }
+
+    .proyectos-table__row:hover {
+        background-color: #fafafd;
+    }
+
+    .proyectos-table__row td {
+        padding: 16px 18px;
+
+        color: var(--color-text-secondary);
+
+        font-size: 12px;
+    }
+
+    .proyectos-table__project {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .proyectos-table__project-icon {
+        display: grid;
+        place-items: center;
+
+        width: 38px;
+        height: 38px;
+
+        flex-shrink: 0;
+
+        border-radius: 10px;
+
+        background-color: var(--color-accent-light);
+        color: var(--color-primary);
+
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .proyectos-table__project-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .proyectos-table__name {
+        max-width: 260px;
+        overflow: hidden;
+
+        color: var(--color-text);
+
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .proyectos-table__id {
+        margin-top: 3px;
+
+        color: var(--color-text-muted);
+
+        font-size: 10px;
+    }
+
+    .proyectos-table__director,
+    .proyectos-table__area,
+    .proyectos-table__period {
+        white-space: nowrap;
+    }
+
+    .proyectos-table__researchers {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 30px;
+        min-height: 28px;
+        padding: 0 8px;
+
+        border-radius: 8px;
+
+        background-color: var(--color-accent-light);
+        color: var(--color-primary);
+
+        font-weight: 700;
+    }
+
+    .proyectos-table__status {
+        display: inline-flex;
+
+        padding: 5px 10px;
+
+        border-radius: 20px;
+
+        font-size: 10px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .proyectos-table__status--active {
+        background-color: #e0f5ef;
+        color: #3c8978;
+    }
+
+    .proyectos-table__status--review {
+        background-color: #fff2d7;
+        color: #a57820;
+    }
+
+    .proyectos-table__status--finished {
+        background-color: #ececf1;
+        color: #6f7380;
+    }
+
+    .proyectos-table__action-column {
+        text-align: right !important;
+    }
+
+    .proyectos-table__view {
+        padding: 6px 10px;
+
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+
+        background-color: var(--color-surface);
+        color: var(--color-text-secondary);
+
+        font-size: 11px;
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .proyectos-table__view:hover {
+        border-color: var(--color-accent);
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 700px) {
+        .proyectos-table__toolbar {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .proyectos-table__search {
+            width: 100%;
+        }
+
+        .proyectos-table__actions {
+            width: 100%;
+        }
+
+        .proyectos-table__filter,
+        .proyectos-table__add {
+            flex: 1;
+        }
+    }
+</style>

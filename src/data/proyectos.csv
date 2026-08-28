@@ -1,4 +1,9 @@
-id_proyecto,codigo_proyecto,titulo,estado,presupuesto_aprobado
-101,PID-2026-01,Sistema de Gestión SeCyT,En Desarrollo,500000
-102,PID-2025-04,Investigación en Materiales,Aprobado,1200000
-103,BINID-2024,Análisis de Datos Educativos,Finalizado,300000
+id_proyecto,codigo_proyecto,titulo,director,area,investigadores,estado,periodo,presupuesto_aprobado
+101,PID-2026-01,Sistema de Gestión SeCyT,María González,Tecnologías de la Información,5,En Desarrollo,2026 - 2028,500000
+102,PID-2025-04,Investigación en Materiales,Lucía Fernández,Ciencias Aplicadas,3,Aprobado,2025 - 2027,1200000
+103,BINID-2024,Análisis de Datos Educativos,Sofía Martínez,Desarrollo Tecnológico,4,Finalizado,2024 - 2026,300000
+104,PID-2026-02,Optimización de procesos industriales,Juan Pérez,Ingeniería y Automatización,4,Activo,2026 - 2027,800000
+105,BINID-2025,Gestión energética para industrias,Carlos Rodríguez,Energía y Ambiente,6,Finalizado,2024 - 2026,600000
+106,PID-2026-03,Sistema de monitoreo inteligente,María González,Tecnologías de la Información,5,Activo,2026 - 2028,750000
+107,PID-2026-04,Desarrollo de materiales sustentables,Lucía Fernández,Ciencias Aplicadas,3,En evaluación,2026 - 2029,900000
+108,BINID-2026,Plataforma de análisis de datos,Sofía Martínez,Desarrollo Tecnológico,4,Activo,2026 - 2028,1100000

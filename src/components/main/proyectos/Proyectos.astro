@@ -1,0 +1,39 @@
+---
+import fs from "node:fs";
+import { parse } from "csv-parse/sync";
+import ProyectosHeader from "./ProyectosHeader.astro";
+import ProyectosTable from "./ProyectosTable.astro";
+
+const csvProyectos = fs.readFileSync("src/data/proyectos.csv", "utf-8");
+
+const records = parse(csvProyectos, {
+    columns: true,
+    skip_empty_lines: true
+});
+
+const proyectos = records.map((row: any) => {
+    return {
+        id: Number(row.id_proyecto),
+        nombre: row.titulo,
+        director: row.director,
+        area: row.area,
+        investigadores: Number(row.investigadores),
+        estado: row.estado,
+        periodo: row.periodo,
+    };
+});
+---
+
+<section class="proyectos">
+    <ProyectosHeader total={proyectos.length} />
+
+    <ProyectosTable proyectos={proyectos} />
+</section>
+
+<style>
+    .proyectos {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+</style>

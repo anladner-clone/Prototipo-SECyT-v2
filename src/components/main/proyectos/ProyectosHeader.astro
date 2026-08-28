@@ -1,0 +1,112 @@
+---
+interface Props {
+    total: number;
+}
+
+const { total } = Astro.props;
+---
+
+<header class="proyectos-header">
+    <div class="proyectos-header__content">
+        <span class="proyectos-header__eyebrow">
+            Gestión de investigación
+        </span>
+
+        <h1 class="proyectos-header__title">Proyectos</h1>
+
+        <p class="proyectos-header__description">
+            Consulta y gestión de los proyectos de investigación registrados en
+            la Secretaría de Ciencia y Tecnología.
+        </p>
+    </div>
+
+    <div class="proyectos-header__summary">
+        <span class="proyectos-header__summary-label">
+            Proyectos registrados
+        </span>
+
+        <strong class="proyectos-header__summary-value">
+            {total}
+        </strong>
+    </div>
+</header>
+
+<style>
+    .proyectos-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .proyectos-header__eyebrow {
+        color: var(--color-accent);
+
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .proyectos-header__title {
+        margin: 6px 0 0;
+
+        color: var(--color-text);
+
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .proyectos-header__description {
+        max-width: 650px;
+
+        margin: 8px 0 0;
+
+        color: var(--color-text-secondary);
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .proyectos-header__summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        padding: 16px 20px;
+
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .proyectos-header__summary-label {
+        color: var(--color-text-muted);
+
+        font-size: 11px;
+    }
+
+    .proyectos-header__summary-value {
+        margin-top: 4px;
+
+        color: var(--color-primary);
+
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+        .proyectos-header {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .proyectos-header__summary {
+            width: 100%;
+            align-items: flex-start;
+        }
+    }
+</style>

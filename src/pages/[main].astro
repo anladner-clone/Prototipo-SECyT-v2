@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Sidebar from "@components/main/Sidebar.astro";
 import Dashboard from "@components/main/dashboard/Dashboard.astro";
 import Investigadores from "@components/main/investigadores/Investigadores.astro";
+import Proyectos from "@components/main/proyectos/Proyectos.astro";
 
 export function getStaticPaths() {
     return [
@@ -16,6 +17,11 @@ export function getStaticPaths() {
                 main: "investigadores",
             },
         },
+        {
+            params: {
+                main: "proyectos",
+            },
+        },
     ];
 }
 
@@ -24,6 +30,7 @@ const { main } = Astro.params;
 const pages = {
     dashboard: Dashboard,
     investigadores: Investigadores,
+    proyectos: Proyectos,
 };
 
 const CurrentPage = pages[main as keyof typeof pages];
