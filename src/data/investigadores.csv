@@ -1,6 +1,16 @@
-id_investigador,dni,cuil,nombre,apellido,email,telefono,facultad_origen,categoria_utn,categoria_conicet,legajo,rol_institucional,cv_url,activo,fecha_ingreso
-1,38123456,20-38123456-7,Ariel,Ladner,ariel@sanfrancisco.utn.edu.ar,3564112233,FRSF,C,Investigador Asistente,45012,Desarrollador Web,/uploads/cv_ariel.pdf,true,2022-01-01
-2,37123456,20-37123456-3,Julio,Arrieta,julio@sanfrancisco.utn.edu.ar,3564223344,FRSF,D,Becario Doctoral,45100,Estudiante,/uploads/cv_julio.pdf,true,2022-01-01
-3,30123456,27-30123456-1,Mariana,Gomez,mariana@sanfrancisco.utn.edu.ar,3564334455,FRSF,B,Investigador Adjunto,12050,No Docente,,true,2022-01-01
-4,28123456,20-28123456-9,Diego,Lopez,diego@sanfrancisco.utn.edu.ar,3564445566,FRSF,A,Investigador Principal,9876,Docente-Investigador,/uploads/cv_diego.pdf,true,2022-01-01
-5,12345678,27-12345678-9,María Elena,Walsh,mwalsh@utn.edu.ar,1122334455,FRBA,A,Investigador Independiente,34892,Investigadora Principal,,true,2020-03-01
+id_investigador,dni,nombre,apellido,email,telefono,facultad_origen,categoria_docente,categoria_investigador,legajo,rol_institucional,cv_url,activo,fecha_ingreso
+1,8221556,Maria Elena,Walsh,mariaelena.walsh@utn.edu.ar,3564783534,FRT,,II,51125,No Docente,/uploads/cv_mariaelena.pdf,True,2020-10-27
+2,16619728,Guillermo,Francella,guillermo.francella@utn.edu.ar,3564365484,FRT,,II,97675,Docente-Investigador,/uploads/cv_guillermo.pdf,True,2022-07-07
+3,6892520,Alberto,Olmedo,alberto.olmedo@utn.edu.ar,3564254426,FRM,Titular,III,96830,Estudiante,/uploads/cv_alberto.pdf,True,2021-03-22
+4,28599135,Jorge,Porcel,jorge.porcel@utn.edu.ar,3564388978,FRM,,,27133,Estudiante,/uploads/cv_jorge.pdf,True,2022-05-30
+5,6684517,Moria,Casan,moria.casan@utn.edu.ar,3564331088,FRSF,JTP,III,51149,Estudiante,/uploads/cv_moria.pdf,True,2021-07-04
+6,17625194,Susana,Gimenez,susana.gimenez@utn.edu.ar,3564670912,FRC,Titular,IV,62318,No Docente,/uploads/cv_susana.pdf,True,2015-03-12
+7,9114949,Mirtha,Legrand,mirtha.legrand@utn.edu.ar,3564485618,FRC,Asociado,III,53392,Estudiante,/uploads/cv_mirtha.pdf,True,2016-07-30
+8,24734098,Tato,Bores,tato.bores@utn.edu.ar,3564951616,FRT,Adjunto,V,87918,No Docente,/uploads/cv_tato.pdf,True,2018-08-19
+9,4925894,Carlitos,Bala,carlitos.bala@utn.edu.ar,3564831982,FRBA,Adjunto,I,53182,Investigador Principal,/uploads/cv_carlitos.pdf,True,2015-05-31
+10,18441754,Nini,Marshall,nini.marshall@utn.edu.ar,3564468084,FRM,Adjunto,IV,55397,Docente-Investigador,/uploads/cv_nini.pdf,True,2020-09-21
+11,27030320,Antonio,Gasalla,antonio.gasalla@utn.edu.ar,3564639008,FRT,Asociado,IV,51181,Docente-Investigador,/uploads/cv_antonio.pdf,True,2019-01-21
+12,6918311,Enrique,Pinti,enrique.pinti@utn.edu.ar,3564273230,FRSF,Adjunto,IV,98265,No Docente,/uploads/cv_enrique.pdf,True,2016-07-30
+13,23200638,Luis,Sandrini,luis.sandrini@utn.edu.ar,3564686730,FRC,Titular,,10543,No Docente,/uploads/cv_luis.pdf,True,2019-01-09
+14,24659647,Fidel,Pintos,fidel.pintos@utn.edu.ar,3564187334,FRT,Adjunto,I,29935,Investigador Principal,/uploads/cv_fidel.pdf,True,2015-06-03
+15,24719748,Juan Carlos,Altavista,juancarlos.altavista@utn.edu.ar,3564552635,FRSF,Adjunto,,83381,Docente-Investigador,/uploads/cv_juancarlos.pdf,True,2022-12-12

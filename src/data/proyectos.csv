@@ -1,8 +1,36 @@
 id_proyecto,codigo_proyecto,titulo,director,area,investigadores,estado,periodo,presupuesto_aprobado
-101,PID-2026-01,Sistema de Gestión SeCyT,María González,Tecnologías de la Información,5,En Desarrollo,2026 - 2028,500000
-102,PID-2025-04,Investigación en Materiales,Lucía Fernández,Ciencias Aplicadas,3,Aprobado,2025 - 2027,1200000
-103,BINID-2024,Análisis de Datos Educativos,Sofía Martínez,Desarrollo Tecnológico,4,Finalizado,2024 - 2026,300000
-104,PID-2026-02,Optimización de procesos industriales,Juan Pérez,Ingeniería y Automatización,4,Activo,2026 - 2027,800000
-105,BINID-2025,Gestión energética para industrias,Carlos Rodríguez,Energía y Ambiente,6,Finalizado,2024 - 2026,600000
-106,PID-2026-03,Inteligencia Artificial en Educación,Laura Martinez,Tecnologías de la Información,4,En Desarrollo,2026 - 2028,900000
-107,PID-2026-04,Simuladores de Gestión de Recursos,Ariel Ladner,Desarrollo Tecnológico,3,Aprobado,2026 - 2027,450000
+101,PID-2024-67,Inteligencia Artificial en Simulador,Director_14,Ingeniería y Automatización,6,Aprobado,2022 - 2027,435146
+102,PID-2023-65,Educación de Materiales en Energía,Director_1,Energía y Ambiente,2,En Desarrollo,2025 - 2027,1546559
+103,PID-2026-27,Datos de Materiales en Procesos,Director_7,Ingeniería y Automatización,5,En Desarrollo,2026 - 2025,374032
+104,PID-2024-65,Gestión de Simulador en Hardware,Director_5,Ciencias Aplicadas,2,Aprobado,2025 - 2026,1345719
+105,PID-2026-19,Hardware de Energía en Datos,Director_14,Ciencias Aplicadas,6,En Desarrollo,2023 - 2028,1426581
+106,PID-2024-95,Energía de Energía en Análisis,Director_3,Ingeniería y Automatización,2,En Desarrollo,2025 - 2028,1781759
+107,PID-2024-39,Datos de Datos en Educación,Director_3,Energía y Ambiente,4,Activo,2022 - 2026,439169
+108,PID-2025-54,Educación de Procesos en Materiales,Director_6,Tecnologías de la Información,6,Finalizado,2026 - 2025,427279
+109,PID-2023-63,Redes de Materiales en Simulador,Director_2,Desarrollo Tecnológico,4,Finalizado,2025 - 2025,1124504
+110,PID-2024-30,Simulador de Software en Optimización,Director_3,Ingeniería y Automatización,3,Aprobado,2022 - 2027,848110
+111,PID-2025-56,Software de Procesos en Redes,Director_13,Desarrollo Tecnológico,2,En Desarrollo,2024 - 2028,1142220
+112,PID-2024-66,Análisis de Hardware en Hardware,Director_11,Ciencias Aplicadas,5,Finalizado,2025 - 2026,1869240
+113,PID-2024-12,Sustentabilidad de Materiales en Software,Director_10,Desarrollo Tecnológico,3,Finalizado,2025 - 2025,1927517
+114,PID-2026-12,Hardware de Procesos en Procesos,Director_15,Tecnologías de la Información,3,Aprobado,2026 - 2026,1382573
+115,PID-2024-40,Datos de Redes en Hardware,Director_8,Desarrollo Tecnológico,3,Finalizado,2024 - 2027,1739825
+116,PID-2026-33,Educación de Inteligencia Artificial en Redes,Director_10,Tecnologías de la Información,2,Finalizado,2022 - 2028,1653092
+117,PID-2026-33,Robótica de Sustentabilidad en Procesos,Director_8,Desarrollo Tecnológico,3,Finalizado,2025 - 2028,434867
+118,PID-2025-67,Robótica de Software en Sustentabilidad,Director_2,Tecnologías de la Información,6,Activo,2022 - 2027,798369
+119,PID-2026-65,Materiales de Optimización en Simulador,Director_9,Ingeniería y Automatización,2,En Desarrollo,2024 - 2026,979859
+120,PID-2026-52,Hardware de Análisis en Educación,Director_14,Ciencias Aplicadas,4,Activo,2022 - 2027,1290743
+121,PID-2025-94,Optimización de Procesos en Inteligencia Artificial,Director_2,Ciencias Aplicadas,3,Aprobado,2026 - 2025,1294613
+122,PID-2023-56,Robótica de Hardware en Procesos,Director_5,Ingeniería y Automatización,6,Aprobado,2026 - 2025,1386089
+123,PID-2023-68,Software de Análisis en Simulador,Director_6,Desarrollo Tecnológico,2,Finalizado,2022 - 2025,979100
+124,PID-2026-60,Software de Simulador en Inteligencia Artificial,Director_11,Ingeniería y Automatización,5,Activo,2023 - 2027,890949
+125,PID-2024-65,Datos de Inteligencia Artificial en Software,Director_2,Energía y Ambiente,2,Activo,2022 - 2025,1649076
+126,PID-2025-59,Sustentabilidad de Energía en Hardware,Director_11,Energía y Ambiente,4,En Desarrollo,2023 - 2027,440753
+127,PID-2026-84,Gestión de Hardware en Energía,Director_14,Energía y Ambiente,6,En Desarrollo,2025 - 2026,860877
+128,PID-2023-99,Datos de Optimización en Simulador,Director_3,Energía y Ambiente,5,Activo,2024 - 2025,996948
+129,PID-2024-14,Redes de Simulador en Datos,Director_15,Ingeniería y Automatización,2,Activo,2026 - 2025,1546940
+130,PID-2025-48,Análisis de Optimización en Software,Director_3,Desarrollo Tecnológico,6,Aprobado,2023 - 2028,1156991
+131,PID-2023-94,Optimización de Optimización en Inteligencia Artificial,Director_15,Ciencias Aplicadas,6,Aprobado,2026 - 2027,1794928
+132,PID-2024-55,Energía de Hardware en Optimización,Director_4,Tecnologías de la Información,5,Aprobado,2024 - 2028,935676
+133,PID-2024-92,Gestión de Sustentabilidad en Software,Director_3,Ingeniería y Automatización,2,Activo,2023 - 2025,1148647
+134,PID-2025-59,Sustentabilidad de Gestión en Simulador,Director_14,Tecnologías de la Información,6,Activo,2023 - 2026,801669
+135,PID-2026-78,Redes de Hardware en Materiales,Director_9,Tecnologías de la Información,4,Aprobado,2026 - 2025,1323040
