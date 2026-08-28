@@ -24,7 +24,7 @@ const { investigador } = Astro.props;
             <span id="texto-boton">Copiar Datos</span>
             <span
                 id="mensaje-exito"
-                style="display: none; color: var(--color-primary, green);"
+                style="display: none; color: green;"
             >
                 ¡Copiado!
             </span>
@@ -113,14 +113,17 @@ const { investigador } = Astro.props;
 </style>
 
 <script define:vars={{ investigador }}>
-    const botonCopiar = document.getElementById("boton-copiar");
-    const textoBoton = document.getElementById("texto-boton");
-    const mensajeExito = document.getElementById("mensaje-exito");
+    function inicializarBotonCopiar() {
+        const botonCopiar = document.getElementById("boton-copiar");
+        const textoBoton = document.getElementById("texto-boton");
+        const mensajeExito = document.getElementById("mensaje-exito");
 
-    if (botonCopiar) {
-        botonCopiar.addEventListener("click", async () => {
-            try {
-                const datosMarkdown = `
+        if (botonCopiar && !botonCopiar.dataset.listenerInitialized) {
+            botonCopiar.dataset.listenerInitialized = "true";
+
+            botonCopiar.addEventListener("click", async () => {
+                try {
+                    const datosMarkdown = `
 Perfil de Investigador: ${investigador.nombre} ${investigador.apellido}
 
 Datos Personales y de Contacto
@@ -136,21 +139,26 @@ Información Institucional
 - Categoría Investigador: ${investigador.categoria_investigador || "N/A"}
 `.trim();
 
-                await navigator.clipboard.writeText(datosMarkdown);
+                    await navigator.clipboard.writeText(datosMarkdown);
 
-                if (textoBoton && mensajeExito) {
-                    textoBoton.style.display = "none";
-                    mensajeExito.style.display = "inline";
+                    if (textoBoton && mensajeExito) {
+                        textoBoton.style.display = "none";
+                        mensajeExito.style.display = "inline";
 
-                    setTimeout(() => {
-                        textoBoton.style.display = "inline";
-                        mensajeExito.style.display = "none";
-                    }, 2000);
+                        setTimeout(() => {
+                            textoBoton.style.display = "inline";
+                            mensajeExito.style.display = "none";
+                        }, 2000);
+                    }
+                } catch (err) {
+                    console.error("Error al copiar al portapapeles:", err);
+                    alert("No se pudo copiar la información.");
                 }
-            } catch (err) {
-                console.error("Error al copiar al portapapeles:", err);
-                alert("No se pudo copiar la información.");
-            }
-        });
+            });
+        }
     }
+
+    inicializarBotonCopiar();
+
+    document.addEventListener("astro:page-load", inicializarBotonCopiar);
 </script>
