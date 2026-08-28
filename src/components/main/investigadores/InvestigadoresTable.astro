@@ -263,7 +263,9 @@ const { investigadores } = Astro.props;
 
     .investigadores-table__wrapper {
         width: 100%;
+        max-height: 500px;
         overflow-x: auto;
+        overflow-y: auto;
     }
 
     .investigadores-table__table {
@@ -275,6 +277,9 @@ const { investigadores } = Astro.props;
 
     .investigadores-table__head {
         background-color: #fafafd;
+        position: sticky;
+        top: 0;
+        z-index: 1;
     }
 
     .investigadores-table__head th {

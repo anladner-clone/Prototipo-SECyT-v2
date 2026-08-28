@@ -32,7 +32,7 @@ const investigadores: Investigador[] = recordsInvestigadores.map((row: any) => {
         correo: row.email,
         rol: row.rol_institucional,
         proyectos: cantidadProyectos,
-        estado: row.activo === "true" ? "Activo" : "Inactivo",
+        estado: row.activo === "True" ? "Activo" : "Inactivo",
     };
 });
 ---

@@ -28,18 +28,18 @@ const { investigador } = Astro.props;
         </div>
         <div class="data-group">
             <span class="data-group__label">CUIL</span>
-            <span class="data-group__value">{investigador.cuil || "N/A"}</span>
+            <span class="data-group__value">{investigador.cuil || "20-12345678-9"}</span>
         </div>
         <div class="data-group">
-            <span class="data-group__label">Categoría UTN</span>
+            <span class="data-group__label">Categoría Docente</span>
             <span class="data-group__value"
-                >{investigador.categoria_utn || "N/A"}</span
+                >{investigador.categoria_docente || "N/A"}</span
             >
         </div>
         <div class="data-group">
             <span class="data-group__label">Categoría CONICET</span>
             <span class="data-group__value"
-                >{investigador.categoria_conicet || "N/A"}</span
+                >{investigador.categoria_investigador || "N/A"}</span
             >
         </div>
     </div>
