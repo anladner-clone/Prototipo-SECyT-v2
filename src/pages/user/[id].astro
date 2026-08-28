@@ -1,0 +1,64 @@
+---
+import fs from "node:fs";
+import { parse } from "csv-parse/sync";
+
+import DashboardLayout from "@layouts/DashboardLayout.astro";
+import UserProfileHeader from "@components/user/UserProfileHeader.astro";
+import UserProjectsList from "@components/user/UserProjectsList.astro";
+
+export function getStaticPaths() {
+    const csvInvestigadores = fs.readFileSync(
+        "src/data/investigadores.csv",
+        "utf-8",
+    );
+    const investigadores = parse(csvInvestigadores, {
+        columns: true,
+        skip_empty_lines: true,
+    });
+
+    return investigadores.map((inv: any) => ({
+        params: { id: inv.id_investigador },
+        props: { investigador: inv },
+    }));
+}
+
+const { investigador } = Astro.props;
+
+const csvParticipacion = fs.readFileSync("src/data/participacion.csv", "utf-8");
+const csvProyectos = fs.readFileSync("src/data/proyectos.csv", "utf-8");
+
+const participaciones = parse(csvParticipacion, {
+    columns: true,
+    skip_empty_lines: true,
+});
+const proyectos = parse(csvProyectos, {
+    columns: true,
+    skip_empty_lines: true,
+});
+
+const misParticipaciones = participaciones.filter(
+    (p: any) => p.id_investigador === investigador.id_investigador,
+);
+const misProyectos = misParticipaciones
+    .map((p: any) =>
+        proyectos.find((proj: any) => proj.id_proyecto === p.id_proyecto),
+    )
+    .filter(Boolean);
+---
+
+<DashboardLayout activeItem="investigadores" title={`Perfil de ${investigador.nombre} ${investigador.apellido}`}>
+    <div class="user-profile">
+        <UserProfileHeader investigador={investigador} />
+        <UserProjectsList proyectos={misProyectos} />
+    </div>
+</DashboardLayout>
+
+<style>
+    .user-profile {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+        width: 100%;
+    }
+</style>

@@ -1,0 +1,112 @@
+---
+interface Props {
+    investigador: any;
+}
+
+const { investigador } = Astro.props;
+const nombreCompleto = `${investigador.nombre} ${investigador.apellido}`;
+const esActivo = investigador.activo === "true";
+---
+
+<header class="profile-header">
+    <div class="profile-header__avatar">
+        {investigador.nombre.charAt(0)}{investigador.apellido.charAt(0)}
+    </div>
+
+    <div class="profile-header__info">
+        <div class="profile-header__title">
+            <h1>{nombreCompleto}</h1>
+            <span
+                class:list={[
+                    "status-badge",
+                    esActivo
+                        ? "status-badge--active"
+                        : "status-badge--inactive",
+                ]}
+            >
+                {esActivo ? "Activo" : "Inactivo"}
+            </span>
+        </div>
+
+        <div class="profile-header__details">
+            <span class="detail"
+                ><span class="material-symbols-outlined">mail</span>
+                {investigador.email}</span
+            >
+            <span class="detail"
+                ><span class="material-symbols-outlined">work</span>
+                {investigador.rol_institucional}</span
+            >
+        </div>
+    </div>
+</header>
+
+<style>
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 24px;
+        background-color: #ffffff;
+        border-radius: var(--radius-lg, 12px);
+        box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+    }
+
+    .profile-header__avatar {
+        display: grid;
+        place-items: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: var(--color-primary, #1e293b);
+        color: white;
+        font-size: 28px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .profile-header__title {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+    }
+
+    .profile-header__title h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .profile-header__details {
+        display: flex;
+        gap: 16px;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .detail {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .detail span.material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .status-badge {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .status-badge--active {
+        background-color: #dcfce7;
+        color: #166534;
+    }
+    .status-badge--inactive {
+        background-color: #fee2e2;
+        color: #991b1b;
+    }
+</style>

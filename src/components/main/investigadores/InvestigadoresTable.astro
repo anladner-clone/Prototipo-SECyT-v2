@@ -125,13 +125,16 @@ const { investigadores } = Astro.props;
                             </td>
 
                             <td class="investigadores-table__action-column">
-                                <button
+                                <a
                                     class="investigadores-table__view"
-                                    type="button"
+                                    href={`/user/${investigador.id}`}
                                     aria-label={`Ver investigador ${investigador.nombre}`}
                                 >
                                     Ver
-                                </button>
+                                    <span class="material-symbols-outlined">
+                                        visibility
+                                    </span>
+                                </a>
                             </td>
                         </tr>
                     ))
@@ -407,6 +410,11 @@ const { investigadores } = Astro.props;
     }
 
     .investigadores-table__view {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        text-decoration: none;
+
         padding: 6px 10px;
 
         border: 1px solid var(--color-border);

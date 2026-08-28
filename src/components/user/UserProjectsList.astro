@@ -1,0 +1,101 @@
+---
+interface Props {
+    proyectos: any[];
+}
+
+const { proyectos } = Astro.props;
+---
+
+<section class="user-projects">
+    <h2>Proyectos Asignados ({proyectos.length})</h2>
+
+    {
+        proyectos.length === 0 ? (
+            <p class="empty-state">
+                Este investigador no está asignado a ningún proyecto
+                actualmente.
+            </p>
+        ) : (
+            <div class="projects-grid">
+                {proyectos.map((proyecto) => (
+                    <article class="project-card">
+                        <span class="project-code">
+                            {proyecto.codigo_proyecto}
+                        </span>
+                        <h3>{proyecto.titulo}</h3>
+
+                        <div class="project-footer">
+                            <span class="project-role">{proyecto.area}</span>
+                            <span class="project-status">
+                                {proyecto.estado}
+                            </span>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        )
+    }
+</section>
+
+<style>
+    .user-projects {
+        background-color: #ffffff;
+        padding: 24px;
+        border-radius: var(--radius-lg, 12px);
+        box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+    }
+
+    .user-projects h2 {
+        margin: 0 0 20px 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    .project-card {
+        padding: 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .project-code {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--color-accent, #3b82f6);
+    }
+
+    .project-card h3 {
+        margin: 0;
+        font-size: 15px;
+        color: #1e293b;
+        line-height: 1.4;
+    }
+
+    .project-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid #f1f5f9;
+        font-size: 13px;
+        color: #64748b;
+    }
+
+    .project-status {
+        font-weight: 500;
+    }
+
+    .empty-state {
+        color: #64748b;
+        font-style: italic;
+    }
+</style>
