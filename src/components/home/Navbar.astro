@@ -1,0 +1,87 @@
+<nav class="navbar">
+    <div class="navbar__container">
+        <div class="navbar__brand">
+            <img
+                alt="UTN San Francisco Logo"
+                class="navbar__logo"
+                src="/img/logo-utn-siglas.png"
+            />
+        </div>
+        <div class="navbar__links">
+            <a class="navbar__link" href="/docs">Documentación</a>
+            <a
+                class="navbar__link"
+                href="https://linkedin.com/in/anladner"
+                target="_blank">LinkedIn</a
+            >
+        </div>
+        <div class="navbar__actions">
+            <a class="btn btn--primary" href="/login">Ingresar al Sistema</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        background-color: var(--color-surface);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 4rem;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .navbar__brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .navbar__logo {
+        height: 2.5rem;
+        object-fit: contain;
+    }
+    .navbar__links {
+        display: none;
+        gap: 2rem;
+        font-weight: 600;
+    }
+    @media (min-width: 768px) {
+        .navbar__links {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .navbar__link {
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .navbar__link:hover {
+        color: var(--color-primary);
+    }
+    .btn {
+        text-decoration: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition:
+            background-color 0.3s,
+            transform 0.2s;
+    }
+    .btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-surface);
+    }
+    .btn--primary:hover {
+        background-color: var(--color-primary-light);
+    }
+</style>

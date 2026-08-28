@@ -1,0 +1,134 @@
+<section class="hero">
+    <div class="hero__container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                Prototipo de SeCyT
+            </h1>
+            <p class="hero__description">
+                Prototipo del sistema de gestión de la Secretaría de Ciencia y Tecnología de la UTN San Francisco.
+                Con el objetivo de agilizar tiempo y procesos a la hora de manejar los datos.
+            </p>
+            <div class="hero__actions">
+                <a href="/login" class="btn btn--primary hero__btn"
+                    >Ingresar al Sistema</a
+                >
+                <a href="/docs" class="btn btn--outline hero__btn"
+                    >Ver Documentación</a
+                >
+            </div>
+        </div>
+        <div class="hero__visual">
+            <div class="hero__image-wrapper">
+                <img
+                    alt="Dashboard preview"
+                    class="hero__image"
+                    src="/img/cover-card/slug-generico.jpg"  
+                />
+            </div>
+            <img
+                alt="UTN Watermark"
+                class="hero__watermark"
+                src="/img/logo.png"  
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        padding: 0rem 1.5rem;
+    }
+    .hero__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .hero__container {
+            grid-template-columns: 1fr 1fr;
+            padding: 8rem 4rem;
+        }
+    }
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 10;
+    }
+    .hero__title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 1.1;
+    }
+    .hero__description {
+        font-size: 1.125rem;
+        color: var(--color-text-secondary);
+        max-width: 32rem;
+        line-height: 1.5;
+    }
+    .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    .btn {
+        text-decoration: none;
+        padding: 0.75rem 2rem;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+            background-color 0.3s,
+            box-shadow 0.3s;
+    }
+    .btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-surface);
+        border: none;
+        box-shadow: var(--shadow-sm);
+    }
+    .btn--primary:hover {
+        background-color: var(--color-primary-light);
+    }
+    .btn--outline {
+        background-color: var(--color-surface);
+        color: var(--color-primary);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+    }
+    .btn--outline:hover {
+        background-color: var(--color-background);
+    }
+    .hero__visual {
+        position: relative;
+    }
+    .hero__image-wrapper {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        z-index: 10;
+        border: 1px solid var(--color-border);
+    }
+    .hero__image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .hero__watermark {
+        position: absolute;
+        bottom: -2.5rem;
+        right: -2.5rem;
+        width: 16rem;
+        opacity: 0.1;
+        z-index: 0;
+        pointer-events: none;
+    }
+</style>

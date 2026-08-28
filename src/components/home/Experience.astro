@@ -1,0 +1,84 @@
+---
+
+---
+
+<section class="experience">
+    <div class="experience__container">
+        <div class="experience__visual">
+            <img
+                class="experience__image"
+                alt="Workspace setup"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDli0YaDdp_qL6nss1Eyg-LrblgrXRBbRCP14i3JgdtM2uAfCtUpZGdF5L-42WKSaWASY64Yi7IgW5EnJIc63cRPtXGlv-VFxdZXqtAGUCK7YC6lX_EMrmpsn6TA6st3GE8kzE0HiTr25duTJSetrUEWyxYBov3c2wBBE6GF3nYOZGol53UUoxZ8U5p_NOCWEuURG3Q3joFot9sMgN0ABhiaYqUsEWSweKXZr_c77FeMu-g3AymQBO0"
+            />
+        </div>
+        <div class="experience__content">
+            <h2 class="experience__title">Diseñado para la eficiencia.</h2>
+            <p class="experience__text">
+                El sistema SecYT optimiza el trabajo diario de investigadores y
+                personal administrativo. Al simplificar la carga de datos y
+                automatizar la generación de reportes, permite focalizar los
+                esfuerzos en lo verdaderamente importante: la investigación y el
+                desarrollo académico.
+            </p>
+            <p class="experience__text">
+                Experimente una interfaz limpia, veloz y sin fricciones,
+                construida sobre estándares de diseño que garantizan estabilidad
+                y confianza.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .experience {
+        background-color: var(--color-surface);
+        padding: 7.5rem 1.5rem;
+    }
+    .experience__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+    @media (min-width: 768px) {
+        .experience__container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .experience__visual {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        height: 100%;
+    }
+    @media (min-width: 768px) {
+        .experience__visual {
+            order: 1;
+        }
+        .experience__content {
+            order: 2;
+        }
+    }
+    .experience__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .experience__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .experience__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-primary);
+    }
+    .experience__text {
+        color: var(--color-text-secondary);
+        line-height: 1.625;
+    }
+</style>

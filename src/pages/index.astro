@@ -1,7 +1,29 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
+import Navbar from "@components/home/Navbar.astro";
+import Hero from "@components/home/Hero.astro";
+import Features from "@components/home/Features.astro";
+import Process from "@components/home/Process.astro";
+import Experience from "@components/home/Experience.astro";
+import Footer from "@components/home/Footer.astro";
 ---
 
-<Layout>
-    <h1>Prototipo SeCyT</h1>
+<Layout title="UTN SecYT - Gestión de la Ciencia">
+    <Navbar />
+    <main class="main-content">
+        <Hero />
+        <Features />
+        <Process />
+        <Experience />
+    </main>
+    <Footer />
 </Layout>
+
+<style>
+    .main-content {
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+</style>
