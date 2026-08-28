@@ -3,8 +3,10 @@ import fs from "node:fs";
 import { parse } from "csv-parse/sync";
 
 import DashboardLayout from "@layouts/DashboardLayout.astro";
-import UserProfileHeader from "@components/user/UserProfileHeader.astro";
-import UserProjectsList from "@components/user/UserProjectsList.astro";
+import ProfileHeaderBar from "@components/user/ProfileHeaderBar.astro";
+import ProfileSidebar from "@components/user/ProfileSidebar.astro";
+import ProfileKPIs from "@components/user/ProfileKPIs.astro";
+import ProfileProjects from "@components/user/ProfileProjects.astro";
 
 export function getStaticPaths() {
     const csvInvestigadores = fs.readFileSync(
@@ -40,25 +42,62 @@ const misParticipaciones = participaciones.filter(
     (p: any) => p.id_investigador === investigador.id_investigador,
 );
 const misProyectos = misParticipaciones
-    .map((p: any) =>
-        proyectos.find((proj: any) => proj.id_proyecto === p.id_proyecto),
-    )
+    .map((p: any) => {
+        const proj = proyectos.find(
+            (proj: any) => proj.id_proyecto === p.id_proyecto,
+        );
+        return proj ? { ...proj, rol: p.rol, periodo: p.periodo } : null;
+    })
     .filter(Boolean);
 ---
 
-<DashboardLayout activeItem="investigadores" title={`Perfil de ${investigador.nombre} ${investigador.apellido}`}>
-    <div class="user-profile">
-        <UserProfileHeader investigador={investigador} />
-        <UserProjectsList proyectos={misProyectos} />
+<DashboardLayout
+    activeItem="investigadores"
+    title={`Perfil de ${investigador.nombre} ${investigador.apellido}`}
+>
+    <div class="profile-page">
+        <ProfileHeaderBar investigador={investigador} />
+
+        <div class="profile-page__grid">
+            <aside class="profile-page__sidebar">
+                <ProfileSidebar investigador={investigador} />
+            </aside>
+
+            <main class="profile-page__content">
+                <ProfileKPIs proyectosCount={misProyectos.length} />
+                <ProfileProjects proyectos={misProyectos} />
+            </main>
+        </div>
     </div>
 </DashboardLayout>
 
 <style>
-    .user-profile {
+    .profile-page {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        padding: 24px;
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
         width: 100%;
+    }
+
+    .profile-page__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    @media (min-width: 992px) {
+        .profile-page__grid {
+            grid-template-columns: 320px 1fr;
+        }
+    }
+
+    .profile-page__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 </style>

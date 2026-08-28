@@ -1,0 +1,47 @@
+---
+interface Props {
+    proyectosCount: number;
+}
+const { proyectosCount } = Astro.props;
+---
+
+<div class="kpi-grid">
+    <div class="kpi-card">
+        <span class="kpi-card__label">Proyectos Activos</span>
+        <span class="kpi-card__value">{proyectosCount}</span>
+    </div>
+    <div class="kpi-card">
+        <span class="kpi-card__label">Total Publicaciones</span>
+        <span class="kpi-card__value">5</span>
+    </div>
+</div>
+
+<style>
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    .kpi-card {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-top: 4px solid var(--color-primary);
+        border-radius: var(--radius-sm);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .kpi-card__label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+    }
+    .kpi-card__value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        line-height: 1;
+    }
+</style>

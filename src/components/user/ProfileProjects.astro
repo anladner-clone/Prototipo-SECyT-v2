@@ -1,0 +1,207 @@
+---
+interface Props {
+    proyectos: any[];
+}
+const { proyectos } = Astro.props;
+---
+
+<section class="projects-section">
+    <header class="projects-section__header">
+        <h3 class="projects-section__title">
+            <span class="material-symbols-outlined">science</span> Trayectoria en
+            Proyectos
+        </h3>
+        <a href="#" class="projects-section__link"
+            >Ver historial completo</a
+        >
+    </header>
+
+    <div class="projects-section__table-wrapper">
+        <table class="projects-table">
+            <thead>
+                <tr>
+                    <th>Código / Título</th>
+                    <th>Rol</th>
+                    <th>Período</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    proyectos.length === 0 ? (
+                        <tr>
+                            <td colspan="4" class="projects-table__empty">
+                                No hay proyectos asignados.
+                            </td>
+                        </tr>
+                    ) : (
+                        proyectos.map((proyecto) => (
+                            <tr>
+                                <td>
+                                    <div class="project-info">
+                                        <span class="project-info__code">
+                                            {proyecto.codigo_proyecto || "S/C"}
+                                        </span>
+                                        <span class="project-info__title">
+                                            {proyecto.titulo}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge--role">
+                                        {proyecto.rol === "Director" && (
+                                            <span class="material-symbols-outlined">
+                                                star
+                                            </span>
+                                        )}
+                                        {proyecto.rol || "Integrante"}
+                                    </span>
+                                </td>
+                                <td class="projects-table__period">
+                                    {proyecto.periodo || "2023 - 2025"}
+                                </td>
+                                <td>
+                                    <span
+                                        class:list={[
+                                            "badge",
+                                            proyecto.estado === "Finalizado"
+                                                ? "badge--inactive"
+                                                : "badge--active",
+                                        ]}
+                                    >
+                                        <span class="badge__dot" />
+                                        {proyecto.estado || "En Ejecución"}
+                                    </span>
+                                </td>
+                            </tr>
+                        ))
+                    )
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<style>
+    .projects-section {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+    }
+    .projects-section__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .projects-section__title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.125rem;
+        color: var(--color-primary);
+        margin: 0;
+    }
+    .projects-section__title .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+    .projects-section__link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+    .projects-section__link:hover {
+        text-decoration: underline;
+    }
+
+    .projects-section__table-wrapper {
+        overflow-x: auto;
+    }
+    .projects-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .projects-table th {
+        background-color: var(--color-background);
+        padding: 1rem 1.5rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .projects-table td {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+        vertical-align: top;
+    }
+    .projects-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .project-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .project-info__code {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+    }
+    .project-info__title {
+        font-size: 0.875rem;
+        color: var(--color-text);
+        line-height: 1.4;
+    }
+
+    .projects-table__period {
+        font-size: 0.875rem;
+        color: var(--color-text);
+        white-space: nowrap;
+    }
+    .projects-table__empty {
+        text-align: center;
+        color: var(--color-text-muted);
+        padding: 2rem;
+        font-style: italic;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    .badge--role {
+        background-color: var(--color-background);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+    }
+    .badge--role .material-symbols-outlined {
+        font-size: 1rem;
+    }
+    .badge--active {
+        background-color: rgba(143, 217, 200, 0.15); /* success opacity */
+        color: #166534;
+    }
+    .badge--inactive {
+        background-color: var(--color-background);
+        color: var(--color-text-secondary);
+    }
+    .badge__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+</style>

@@ -1,0 +1,156 @@
+---
+interface Props {
+    investigador: any;
+}
+const { investigador } = Astro.props;
+---
+
+<header class="header-bar">
+    <div class="header-bar__title-wrapper">
+        <button class="header-bar__back" onclick="window.history.back()">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <div>
+            <h1 class="header-bar__title">Ficha del Investigador</h1>
+            <span class="header-bar__breadcrumb"
+                >Directorio / Detalle de Perfil</span
+            >
+        </div>
+    </div>
+
+    <div class="header-bar__actions">
+        <button id="boton-copiar" class="btn btn--outline">
+            <span class="material-symbols-outlined">content_copy</span>
+            <span id="texto-boton">Copiar Datos</span>
+            <span
+                id="mensaje-exito"
+                style="display: none; color: var(--color-primary, green);"
+            >
+                ¡Copiado!
+            </span>
+        </button>
+        <button class="btn btn--primary">
+            <span class="material-symbols-outlined">picture_as_pdf</span>
+            Exportar PDF
+        </button>
+    </div>
+</header>
+
+<style>
+    .header-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .header-bar__title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .header-bar__back {
+        background: none;
+        border: none;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: var(--radius-sm);
+        transition: background-color 0.2s;
+    }
+    .header-bar__back:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+    .header-bar__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin: 0;
+    }
+    .header-bar__breadcrumb {
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+    }
+    .header-bar__actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+    .btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+    .btn--outline {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+    }
+    .btn--outline:hover {
+        background-color: var(--color-background);
+    }
+    .btn--primary {
+        background-color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        color: var(--color-surface);
+    }
+    .btn--primary:hover {
+        background-color: var(--color-primary-light);
+    }
+</style>
+
+<script define:vars={{ investigador }}>
+    const botonCopiar = document.getElementById("boton-copiar");
+    const textoBoton = document.getElementById("texto-boton");
+    const mensajeExito = document.getElementById("mensaje-exito");
+
+    if (botonCopiar) {
+        botonCopiar.addEventListener("click", async () => {
+            try {
+                const datosMarkdown = `
+Perfil de Investigador: ${investigador.nombre} ${investigador.apellido}
+
+Datos Personales y de Contacto
+- DNI: ${investigador.dni || "N/A"}
+- Email: ${investigador.email || "N/A"}
+- Teléfono: ${investigador.telefono || "N/A"}
+
+Información Institucional
+- Legajo: ${investigador.legajo || "N/A"}
+- Facultad de Origen: ${investigador.facultad_origen || "N/A"}
+- Rol Institucional: ${investigador.rol_institucional || "N/A"}
+- Categoría Docente: ${investigador.categoria_docente || "N/A"}
+- Categoría Investigador: ${investigador.categoria_investigador || "N/A"}
+`.trim();
+
+                await navigator.clipboard.writeText(datosMarkdown);
+
+                if (textoBoton && mensajeExito) {
+                    textoBoton.style.display = "none";
+                    mensajeExito.style.display = "inline";
+
+                    setTimeout(() => {
+                        textoBoton.style.display = "inline";
+                        mensajeExito.style.display = "none";
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error("Error al copiar al portapapeles:", err);
+                alert("No se pudo copiar la información.");
+            }
+        });
+    }
+</script>
