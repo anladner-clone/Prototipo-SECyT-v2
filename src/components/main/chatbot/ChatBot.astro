@@ -1,0 +1,678 @@
+<div class="chatbot-container">
+    <!-- Panel Izquierdo: Chat -->
+    <main class="chat-main">
+        <header class="chat-header">
+            <div class="chat-title-group">
+                <span class="material-symbols-outlined bot-icon-main"
+                    >smart_toy</span
+                >
+                <div>
+                    <h1 class="chat-title">Asistente Virtual SecYT</h1>
+                    <p class="chat-subtitle">
+                        Gestión de proyectos e investigadores
+                    </p>
+                </div>
+            </div>
+            <button class="btn-clear">
+                <span class="material-symbols-outlined">cleaning_services</span>
+                Limpiar Chat
+            </button>
+        </header>
+
+        <div class="chat-messages">
+            <div class="timestamp">Hoy, 10:42 AM</div>
+
+            <!-- Mensaje Usuario -->
+            <div class="message user">
+                <div class="bubble bubble-user">
+                    ¿Cuáles son los proyectos activos del Dr. Pérez que terminan
+                    este año?
+                </div>
+            </div>
+
+            <!-- Mensaje Bot -->
+            <div class="message bot">
+                <div class="bot-avatar">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                </div>
+                <div class="bubble bubble-bot">
+                    <p class="bot-text">
+                        He encontrado 2 proyectos activos asociados al Dr.
+                        Roberto Pérez con fecha de finalización en el año actual
+                        (2024):
+                    </p>
+
+                    <div class="cards-container">
+                        <!-- Tarjeta 1 -->
+                        <div class="project-card">
+                            <div class="card-header">
+                                <span class="badge badge-blue">PID-2022</span>
+                                <span
+                                    class="material-symbols-outlined icon-link"
+                                    >open_in_new</span
+                                >
+                            </div>
+                            <h3 class="card-title">
+                                Optimización de Algoritmos Genéticos en Redes...
+                            </h3>
+                            <p class="card-date">Fin: 31/12/2024</p>
+                            <div class="card-footer">
+                                <span class="status active">
+                                    <span class="material-symbols-outlined"
+                                        >check_circle</span
+                                    > Activo
+                                </span>
+                                <a href="#" class="link-action">Ver detalle</a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2 -->
+                        <div class="project-card">
+                            <div class="card-header">
+                                <span class="badge badge-blue">PIT-2023</span>
+                                <span
+                                    class="material-symbols-outlined icon-link"
+                                    >open_in_new</span
+                                >
+                            </div>
+                            <h3 class="card-title">
+                                Implementación de IA en Procesos de Manufactura
+                            </h3>
+                            <p class="card-date">Fin: 30/11/2024</p>
+                            <div class="card-footer">
+                                <span class="status active">
+                                    <span class="material-symbols-outlined"
+                                        >check_circle</span
+                                    > Activo
+                                </span>
+                                <a href="#" class="link-action">Ver detalle</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="bot-text bot-followup">
+                        ¿Deseas exportar el detalle de estos proyectos o
+                        consultar sus presupuestos?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-wrapper">
+            <div class="suggestions">
+                <button class="chip"
+                    >¿Quiénes son los directores del proyecto PIT-2023?</button
+                >
+                <button class="chip">Resumen de becas vigentes</button>
+                <button class="chip">Exportar proyectos 2024</button>
+            </div>
+            <div class="input-box">
+                <button class="btn-icon text-muted">
+                    <span class="material-symbols-outlined">attach_file</span>
+                </button>
+                <input
+                    type="text"
+                    placeholder="Escribe tu consulta aquí..."
+                    readonly
+                />
+                <button class="btn-send">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Panel Derecho: Contexto Sidebar -->
+    <aside class="chat-sidebar">
+        <div class="sidebar-header">
+            <span class="material-symbols-outlined">info</span>
+            <h2>Contexto Sugerido</h2>
+        </div>
+
+        <section class="sidebar-section">
+            <div class="section-title-row">
+                <h3>Investigadores Recientes</h3>
+                <span class="material-symbols-outlined">more_horiz</span>
+            </div>
+            <div class="list-item">
+                <div class="avatar gray-avatar">RP</div>
+                <div class="item-info">
+                    <strong>Dr. Roberto Pérez</strong>
+                    <span>Dpto. Sistemas</span>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="avatar gray-avatar">MG</div>
+                <div class="item-info">
+                    <strong>Ing. María Gómez</strong>
+                    <span>Dpto. Electromecánica</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="sidebar-section">
+            <div class="section-title-row">
+                <h3>Proyectos Destacados <br /> (Activos)</h3>
+                <span class="material-symbols-outlined">filter_list</span>
+            </div>
+
+            <div class="mini-card">
+                <span class="badge badge-light-blue">PID-2024</span>
+                <h4>Desarrollo de Materiales Compuestos Sostenibles</h4>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill green-fill"
+                            style="width: 45%;"
+                        >
+                        </div>
+                    </div>
+                    <span class="progress-text">45% Ejecutado</span>
+                </div>
+            </div>
+
+            <div class="mini-card">
+                <span class="badge badge-light-blue">PIT-2023</span>
+                <h4>Implementación de IA en Procesos...</h4>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill orange-fill"
+                            style="width: 85%;"
+                        >
+                        </div>
+                    </div>
+                    <span class="progress-text">85% Ejecutado</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="sidebar-section">
+            <div class="section-title-row">
+                <h3>Acciones Rápidas</h3>
+            </div>
+            <div class="actions-grid">
+                <button class="action-btn">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    Nuevo Proyecto
+                </button>
+                <button class="action-btn">
+                    <span class="material-symbols-outlined">download</span>
+                    Exportar Datos
+                </button>
+            </div>
+        </section>
+    </aside>
+</div>
+
+<style>
+    :root {
+        --chat-blue: #005bb5;
+        --chat-light-blue: #e8f0fe;
+        --chat-user-bg: #001e36;
+        --chat-bg-gray: #f8f9fc;
+    }
+
+    .chatbot-container {
+        display: flex;
+        height: 100dvh;
+        background-color: var(--color-surface);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+    }
+
+    .chat-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+    }
+
+    .chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .chat-title-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .bot-icon-main {
+        color: var(--chat-blue);
+        font-size: 2rem;
+    }
+
+    .chat-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        margin: 0;
+    }
+
+    .chat-subtitle {
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+
+    .btn-clear {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--chat-light-blue);
+        color: var(--chat-blue);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 1.5rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background-color: #fafbfc;
+    }
+
+    .timestamp {
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        background-color: var(--color-border);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        align-self: center;
+    }
+
+    .message {
+        display: flex;
+        gap: 1rem;
+        max-width: 85%;
+    }
+
+    .user {
+        align-self: flex-end;
+    }
+
+    .bubble {
+        padding: 1rem;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .bubble-user {
+        background-color: var(--chat-user-bg);
+        color: #ffffff;
+        border-bottom-right-radius: 4px;
+    }
+
+    .bot {
+        align-self: flex-start;
+    }
+
+    .bot-avatar {
+        width: 36px;
+        height: 36px;
+        background-color: var(--chat-light-blue);
+        color: var(--chat-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .bot-avatar span {
+        font-size: 1.2rem;
+    }
+
+    .bubble-bot {
+        background-color: #ffffff;
+        border: 1px solid var(--color-border);
+        border-top-left-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        color: var(--color-text);
+        width: 100%;
+    }
+
+    .bot-text {
+        margin-bottom: 1rem;
+    }
+
+    .bot-followup {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        font-style: italic;
+        color: var(--color-text-secondary);
+    }
+
+    .cards-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .project-card {
+        flex: 1;
+        min-width: 240px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 1rem;
+        background-color: #fafbfc;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .badge {
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .badge-blue {
+        background-color: var(--chat-light-blue);
+        color: var(--chat-blue);
+    }
+
+    .icon-link {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+    }
+
+    .card-date {
+        font-size: 0.8rem;
+        color: var(--color-text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+    .status.active {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: #0b8a5c;
+        font-weight: 500;
+    }
+
+    .status.active span {
+        font-size: 1.1rem;
+    }
+
+    .link-action {
+        color: var(--chat-blue);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .chat-input-wrapper {
+        padding: 1.5rem;
+        background-color: #ffffff;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .suggestions {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        overflow-x: auto;
+    }
+
+    .chip {
+        background-color: #ffffff;
+        border: 1px solid var(--color-border);
+        color: var(--color-text-secondary);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .input-box {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 0.5rem;
+        background-color: #ffffff;
+    }
+
+    .input-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--color-text);
+    }
+
+    .btn-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+    }
+
+    .text-muted {
+        color: var(--color-text-muted);
+    }
+
+    .btn-send {
+        background-color: var(--chat-blue);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    /* --- PANEL DERECHO: SIDEBAR CONTEXTO --- */
+    .chat-sidebar {
+        width: 320px;
+        background-color: #ffffff;
+        border-left: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+        color: var(--color-text);
+    }
+
+    .sidebar-header h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .sidebar-section {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .section-title-row h3 {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+
+    .section-title-row span {
+        color: var(--color-text-muted);
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .list-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background-color: #fafbfc;
+        border-radius: var(--radius-sm);
+        margin-bottom: 0.5rem;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .gray-avatar {
+        background-color: var(--color-border);
+        color: var(--color-text-secondary);
+    }
+
+    .item-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-info strong {
+        font-size: 0.85rem;
+        color: var(--color-primary-dark);
+    }
+
+    .item-info span {
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+    }
+
+    .mini-card {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .badge-light-blue {
+        background-color: #e6f0ff;
+        color: #0066cc;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+
+    .mini-card h4 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .progress-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background-color: var(--color-border);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 3px;
+    }
+
+    .green-fill {
+        background-color: #00bfa5;
+    }
+    .orange-fill {
+        background-color: #ff9800;
+    }
+
+    .progress-text {
+        align-self: flex-end;
+        font-size: 0.7rem;
+        color: var(--color-text-secondary);
+    }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 1rem 0.5rem;
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .action-btn span {
+        color: var(--color-text-muted);
+        font-size: 1.5rem;
+    }
+</style>

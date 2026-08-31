@@ -3,6 +3,7 @@ import DashboardLayout from "@layouts/DashboardLayout.astro";
 import Dashboard from "@components/main/dashboard/Dashboard.astro";
 import Investigadores from "@components/main/investigadores/Investigadores.astro";
 import Proyectos from "@components/main/proyectos/Proyectos.astro";
+import ChatBot from "@components/main/chatbot/ChatBot.astro";
 
 export function getStaticPaths() {
     return [
@@ -21,6 +22,11 @@ export function getStaticPaths() {
                 main: "proyectos",
             },
         },
+        {
+            params: {
+                main: "chatbot",
+            },
+        },
     ];
 }
 
@@ -30,6 +36,7 @@ const pages = {
     dashboard: Dashboard,
     investigadores: Investigadores,
     proyectos: Proyectos,
+    chatbot: ChatBot,
 };
 
 const CurrentPage = pages[main as keyof typeof pages];

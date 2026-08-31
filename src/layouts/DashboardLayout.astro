@@ -8,24 +8,37 @@ export interface Props {
 }
 
 const { activeItem, title = "Sistema de Gestión" } = Astro.props;
+const pathname = Astro.url.pathname;
 ---
 
 <Layout title={title}>
     <div class="main-layout">
         <Sidebar activeItem={activeItem} />
 
-        <main class="main-layout__content">
-            <header class="main-layout__topbar">
-                <div class="main-layout__breadcrumb">Sistema de Gestión</div>
+        <main
+            class="main-layout__content"
+            style={pathname === "/chatbot" ? "padding: 0;" : ""}
+        >
+            {
+                pathname !== "/chatbot" && (
+                    <header class="main-layout__topbar">
+                        <div class="main-layout__breadcrumb">
+                            Sistema de Gestión
+                        </div>
 
-                <div class="main-layout__user">
-                    <span class="main-layout__user-name"> Admin </span>
+                        <div class="main-layout__user">
+                            <span class="main-layout__user-name"> Admin </span>
 
-                    <span class="main-layout__user-avatar"> A </span>
-                </div>
-            </header>
+                            <span class="main-layout__user-avatar"> A </span>
+                        </div>
+                    </header>
+                )
+            }
 
-            <section class="main-layout__page">
+            <section
+                class="main-layout__page"
+                style={pathname === "/chatbot" ? "padding: 0;" : ""}
+            >
                 <slot />
             </section>
         </main>
