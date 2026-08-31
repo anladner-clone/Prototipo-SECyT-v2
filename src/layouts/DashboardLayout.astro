@@ -9,6 +9,12 @@ export interface Props {
 
 const { activeItem, title = "Sistema de Gestión" } = Astro.props;
 const pathname = Astro.url.pathname;
+
+const isChatbot =
+    activeItem === "chatbot" ||
+    pathname === "/chatbot" ||
+    pathname === "/chatbot/" ||
+    pathname.startsWith("/chatbot");
 ---
 
 <Layout title={title}>
@@ -16,11 +22,13 @@ const pathname = Astro.url.pathname;
         <Sidebar activeItem={activeItem} />
 
         <main
-            class="main-layout__content"
-            style={pathname === "/chatbot" ? "padding: 0;" : ""}
+            class:list={[
+                "main-layout__content",
+                { "main-layout__content--no-padding": isChatbot },
+            ]}
         >
             {
-                pathname !== "/chatbot" && (
+                !isChatbot && (
                     <header class="main-layout__topbar">
                         <div class="main-layout__breadcrumb">
                             Sistema de Gestión
@@ -36,8 +44,10 @@ const pathname = Astro.url.pathname;
             }
 
             <section
-                class="main-layout__page"
-                style={pathname === "/chatbot" ? "padding: 0;" : ""}
+                class:list={[
+                    "main-layout__page",
+                    { "main-layout__page--no-padding": isChatbot },
+                ]}
             >
                 <slot />
             </section>
@@ -62,6 +72,12 @@ const pathname = Astro.url.pathname;
 
         padding: 0 1.5rem;
         overflow: auto;
+    }
+
+    .main-layout__content--no-padding {
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
     }
 
     .main-layout__topbar {
@@ -111,6 +127,11 @@ const pathname = Astro.url.pathname;
 
     .main-layout__page {
         padding: 4px;
+    }
+
+    .main-layout__page--no-padding {
+        padding: 0;
+        height: 100%;
     }
 
     @media (max-width: 700px) {
